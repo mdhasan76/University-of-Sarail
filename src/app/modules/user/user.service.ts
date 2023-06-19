@@ -7,6 +7,7 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
   // auto genarate emplemental id
   const id = await genarateUserId()
   user.id = id
+
   // default pass
   if (!user.password) {
     user.password = config.default_user_pass as string
