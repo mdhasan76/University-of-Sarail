@@ -1,9 +1,9 @@
 import mongoose from 'mongoose'
 import app from './app'
 import config from './config'
-import logger from './shared/logger'
+import { errorLogger, logger } from './shared/logger'
 
-main().catch(err => logger.error(err))
+main().catch(err => errorLogger.error(err))
 
 async function main() {
   try {
@@ -14,6 +14,6 @@ async function main() {
       logger.info('server is running on the ', config.port)
     })
   } catch (err) {
-    logger.error('Server not connected', err)
+    errorLogger.error('Server not connected', err)
   }
 }
