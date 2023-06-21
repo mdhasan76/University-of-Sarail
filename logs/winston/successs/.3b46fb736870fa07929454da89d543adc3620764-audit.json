@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\successs\\.3b46fb736870fa07929454da89d543adc3620764-audit.json",
+    "files": [
+        {
+            "date": 1687320770484,
+            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\successs\\UA-2023-06-21-10success.log",
+            "hash": "995aed5221992e827f111f9e7d48fde0418a9f6d81700ddf0b63853c1d3e8417"
+        }
+    ],
+    "hashType": "sha256"
+}
