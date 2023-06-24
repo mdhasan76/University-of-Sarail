@@ -3,6 +3,8 @@ import {
   AcademicSemisterModel,
   IAcademicSemister,
 } from './academicSemister.interface';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
 
 const Month = [
   'January',
@@ -50,6 +52,20 @@ const academicSemisterSchema = new Schema<IAcademicSemister>(
     timestamps: true,
   }
 );
+
+academicSemisterSchema.pre('save', async function (next) {
+  const isAxist = await AcademicSemister.findOne({
+    title: this.title,
+    year: this.year,
+  });
+  if (isAxist) {
+    throw new ApiError(
+      httpStatus.CONFLICT,
+      'Academic semister is already exist !'
+    );
+  }
+  next();
+});
 
 export const AcademicSemister = model<IAcademicSemister, AcademicSemisterModel>(
   'AcademicSemisters',
