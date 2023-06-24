@@ -46,3 +46,15 @@
   label: 'right meow!',
   timestamp: '2023-06-24T05:49:30.778Z'
 }
+{
+  message: 'Server is connected succeflly',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-06-24T05:55:31.860Z'
+}
+{
+  level: 'info',
+  message: 'server is running on the ',
+  label: 'right meow!',
+  timestamp: '2023-06-24T05:55:31.867Z'
+}

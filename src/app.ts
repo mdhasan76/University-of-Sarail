@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import globalErrorHandlers from './middlewares/globalErrorHandlers';
 import { UserRoutes } from './app/modules/user/user.route';
+import { AcademicSemisterRoutes } from './app/modules/academicSemister/academicSemister.route';
 const app: Application = express();
 
 // parser or Middleware
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1/users', UserRoutes.userRouter);
+app.use('/api/v1/academic-semisters', AcademicSemisterRoutes);
 
 app.get('/', async (req: Request, res: Response) => {
   res.send(`Hello, You server is running`);
