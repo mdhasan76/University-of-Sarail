@@ -6,6 +6,7 @@ import ApiError from '../errors/ApiError';
 import { errorLogger } from '../shared/logger';
 import { ZodError } from 'zod';
 import handleZodError from '../errors/handleZodError';
+import handleCastError from '../errors/handleCastError';
 
 const globalErrorHandlers: ErrorRequestHandler = (error, req, res, next) => {
   config.mode === 'development'
@@ -33,6 +34,18 @@ const globalErrorHandlers: ErrorRequestHandler = (error, req, res, next) => {
     message = error?.message;
     errorMessage = error?.message
       ? [{ path: '', message: error?.message }]
+      : [];
+  } else if (error?.name === 'CastError') {
+    const simplifiedError = handleCastError(error);
+    statusCode = simplifiedError?.statusCode;
+    message = simplifiedError?.message;
+    errorMessage = simplifiedError?.message
+      ? [
+          {
+            path: '',
+            message: simplifiedError?.message,
+          },
+        ]
       : [];
   } else if (error instanceof Error) {
     message = error?.message;

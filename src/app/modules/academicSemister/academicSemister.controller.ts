@@ -32,7 +32,10 @@ const getAllSemisters = catchAsync(async (req, res, next) => {
     'sortBy',
     'sortOrder',
   ]);
+  const filters = pick(req.query, ['searchTerm', 'title', 'code', 'year']);
+
   const result = await AcademicSemisterService.getAllSemisters(
+    filters,
     paginationOption
   );
 
@@ -47,7 +50,22 @@ const getAllSemisters = catchAsync(async (req, res, next) => {
   next();
 });
 
+const getSingleSemister = catchAsync(async (req, res, next) => {
+  const id = req.params.id;
+  const result = await AcademicSemisterService.getSingleSemister(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Get Academic semister successfully',
+    data: result,
+  });
+
+  next();
+});
+
 export const AcademicSemisterController = {
   createAcademicSemister,
   getAllSemisters,
+  getSingleSemister,
 };

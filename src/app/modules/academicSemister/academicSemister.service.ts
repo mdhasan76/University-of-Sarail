@@ -5,6 +5,7 @@ import { IGenericResponse } from '../../../interface/common';
 import { academicSemisterTitleCodeMapper } from './academicSemister.constant';
 import {
   IAcademicSemister,
+  IAcademicSemisterFilter,
   IPaginationOptions,
 } from './academicSemister.interface';
 import { AcademicSemister } from './academicSemister.model';
@@ -20,9 +21,36 @@ const createSemister = async (
   return result;
 };
 
+// Get All Semister using filter an search
 const getAllSemisters = async (
+  filters: IAcademicSemisterFilter,
   pagination: IPaginationOptions
 ): Promise<IGenericResponse<IAcademicSemister[]>> => {
+  const { searchTerm, ...filtersData } = filters;
+
+  const academicSearchableFields = ['title', 'code', 'year'];
+
+  const andCondition = [];
+
+  if (searchTerm?.length) {
+    andCondition.push({
+      $or: academicSearchableFields.map(field => ({
+        [field]: {
+          $regex: searchTerm,
+          $options: 'i',
+        },
+      })),
+    });
+  }
+
+  if (Object.keys(filtersData).length) {
+    andCondition.push({
+      $and: Object.entries(filtersData).map(([field, value]) => ({
+        [field]: value,
+      })),
+    });
+  }
+
   const { page, limit, skip, sortBy, sortOrder } =
     paginationHelper.calculatePagination(pagination);
 
@@ -32,7 +60,9 @@ const getAllSemisters = async (
     sortConditoin[sortBy] = sortOrder;
   }
 
-  const result = await AcademicSemister.find()
+  const whereCondition = andCondition.length > 0 ? { $and: andCondition } : {};
+
+  const result = await AcademicSemister.find(whereCondition)
     .sort(sortConditoin)
     .skip(skip)
     .limit(limit);
@@ -48,4 +78,16 @@ const getAllSemisters = async (
   };
 };
 
-export const AcademicSemisterService = { createSemister, getAllSemisters };
+// Get single Semister
+const getSingleSemister = async (
+  id: string
+): Promise<IAcademicSemister | null> => {
+  const result = await AcademicSemister.findOne({ _id: id });
+  return result;
+};
+
+export const AcademicSemisterService = {
+  createSemister,
+  getAllSemisters,
+  getSingleSemister,
+};

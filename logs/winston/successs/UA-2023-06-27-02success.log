@@ -1,0 +1,12 @@
+{
+  message: 'Server is connected succeflly',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-06-26T20:01:47.195Z'
+}
+{
+  level: 'info',
+  message: 'server is running on the ',
+  label: 'right meow!',
+  timestamp: '2023-06-26T20:01:47.202Z'
+}

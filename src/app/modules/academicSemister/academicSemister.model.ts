@@ -31,7 +31,7 @@ const academicSemisterSchema = new Schema<IAcademicSemister>(
       enum: ['01', '02', '03'],
     },
     year: {
-      type: Number,
+      type: String,
       required: true,
     },
     startMonth: {

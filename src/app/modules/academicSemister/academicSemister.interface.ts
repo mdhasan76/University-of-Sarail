@@ -14,10 +14,17 @@ type Month =
   | 'December';
 export type IAcademicSemister = {
   title: 'Autumn' | 'Summer' | 'Fall';
-  year: number;
+  year: string;
   code: 'o1' | '02' | '03';
   startMonth: Month;
   endMonth: Month;
+};
+
+export type IAcademicSemisterFilter = {
+  searchTerm?: string;
+  year?: string;
+  code?: string;
+  title?: string;
 };
 
 export type IPaginationOptions = {
