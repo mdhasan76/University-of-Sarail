@@ -20,4 +20,11 @@ export type IAcademicSemister = {
   endMonth: Month;
 };
 
+export type IPaginationOptions = {
+  limit?: number;
+  page?: number;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+};
+
 export type AcademicSemisterModel = Model<IAcademicSemister>;

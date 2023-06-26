@@ -1,6 +1,12 @@
+import { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/ApiError';
+import { paginationHelper } from '../../../helpers/paginationHelper';
+import { IGenericResponse } from '../../../interface/common';
 import { academicSemisterTitleCodeMapper } from './academicSemister.constant';
-import { IAcademicSemister } from './academicSemister.interface';
+import {
+  IAcademicSemister,
+  IPaginationOptions,
+} from './academicSemister.interface';
 import { AcademicSemister } from './academicSemister.model';
 import httpStatus from 'http-status';
 
@@ -14,4 +20,32 @@ const createSemister = async (
   return result;
 };
 
-export const AcademicSemisterService = { createSemister };
+const getAllSemisters = async (
+  pagination: IPaginationOptions
+): Promise<IGenericResponse<IAcademicSemister[]>> => {
+  const { page, limit, skip, sortBy, sortOrder } =
+    paginationHelper.calculatePagination(pagination);
+
+  const sortConditoin: { [key: string]: SortOrder } = {};
+
+  if (sortBy && sortOrder) {
+    sortConditoin[sortBy] = sortOrder;
+  }
+
+  const result = await AcademicSemister.find()
+    .sort(sortConditoin)
+    .skip(skip)
+    .limit(limit);
+  const total = await AcademicSemister.countDocuments();
+
+  return {
+    meta: {
+      limit,
+      page,
+      total,
+    },
+    data: result,
+  };
+};
+
+export const AcademicSemisterService = { createSemister, getAllSemisters };
