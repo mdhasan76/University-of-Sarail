@@ -1,40 +1,40 @@
 {
-    "keep": {
-        "days": true,
-        "amount": 14
+  "keep": {
+    "days": true,
+    "amount": 14
+  },
+  "auditLog": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\.254ca3c08ebfc18484c67ede5ea0f4d162839352-audit.json",
+  "files": [
+    {
+      "date": 1687713403918,
+      "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-25-23error.log",
+      "hash": "da065bfd1b6d5245515769286c236c678b50e6f47d6895177e59f65ebe54468d"
     },
-    "auditLog": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\.254ca3c08ebfc18484c67ede5ea0f4d162839352-audit.json",
-    "files": [
-        {
-            "date": 1687713403918,
-            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-25-23error.log",
-            "hash": "da065bfd1b6d5245515769286c236c678b50e6f47d6895177e59f65ebe54468d"
-        },
-        {
-            "date": 1687751711953,
-            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-09error.log",
-            "hash": "9665142dbad20d7d93ad3cc02190749720bfe529a010069948ee1074b03669b9"
-        },
-        {
-            "date": 1687752067596,
-            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-10error.log",
-            "hash": "18fad93e26d7cf1c9af89c59d09d3b0560225d7eff6674255dc2c2f632e3e729"
-        },
-        {
-            "date": 1687755639344,
-            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-11error.log",
-            "hash": "ee3609701ef911b4cfa99f556f05a7be11b3eb412a75a44302c900bf26057256"
-        },
-        {
-            "date": 1687759213842,
-            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-12error.log",
-            "hash": "4e398527eda50fb82da5e2f36e5e647d79c0b6cf44935d651ca6ca9f6840c9de"
-        },
-        {
-            "date": 1687763506283,
-            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-13error.log",
-            "hash": "0824285771a552524d3a64e5a7846cc188a695cd6fcf68d2c882553429345092"
-        }
-    ],
-    "hashType": "sha256"
+    {
+      "date": 1687751711953,
+      "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-09error.log",
+      "hash": "9665142dbad20d7d93ad3cc02190749720bfe529a010069948ee1074b03669b9"
+    },
+    {
+      "date": 1687752067596,
+      "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-10error.log",
+      "hash": "18fad93e26d7cf1c9af89c59d09d3b0560225d7eff6674255dc2c2f632e3e729"
+    },
+    {
+      "date": 1687755639344,
+      "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-11error.log",
+      "hash": "ee3609701ef911b4cfa99f556f05a7be11b3eb412a75a44302c900bf26057256"
+    },
+    {
+      "date": 1687759213842,
+      "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-12error.log",
+      "hash": "4e398527eda50fb82da5e2f36e5e647d79c0b6cf44935d651ca6ca9f6840c9de"
+    },
+    {
+      "date": 1687763506283,
+      "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-26-13error.log",
+      "hash": "0824285771a552524d3a64e5a7846cc188a695cd6fcf68d2c882553429345092"
+    }
+  ],
+  "hashType": "sha256"
 }
