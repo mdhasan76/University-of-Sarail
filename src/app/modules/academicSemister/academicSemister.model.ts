@@ -1,8 +1,5 @@
 import { Schema, model } from 'mongoose';
-import {
-  AcademicSemisterModel,
-  IAcademicSemister,
-} from './academicSemister.interface';
+import { IAcademicSemister } from './academicSemister.interface';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
 
@@ -53,7 +50,7 @@ const academicSemisterSchema = new Schema<IAcademicSemister>(
   }
 );
 
-academicSemisterSchema.pre('save', async function (next) {
+academicSemisterSchema.pre('save', async function (porecallkori) {
   const isAxist = await AcademicSemister.findOne({
     title: this.title,
     year: this.year,
@@ -64,10 +61,10 @@ academicSemisterSchema.pre('save', async function (next) {
       'Academic semister is already exist !'
     );
   }
-  next();
+  porecallkori();
 });
 
-export const AcademicSemister = model<IAcademicSemister, AcademicSemisterModel>(
+export const AcademicSemister = model<IAcademicSemister>(
   'AcademicSemisters',
   academicSemisterSchema
 );
