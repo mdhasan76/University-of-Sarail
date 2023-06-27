@@ -86,8 +86,31 @@ const getSingleSemister = async (
   return result;
 };
 
+// Update Semister
+const updateSemister = async (
+  id: string,
+  payload: Partial<IAcademicSemister>
+): Promise<IAcademicSemister | null> => {
+  if (
+    payload?.title &&
+    payload?.code &&
+    academicSemisterTitleCodeMapper[payload?.title] !== payload?.code
+  ) {
+    throw new ApiError(
+      httpStatus.BAD_REQUEST,
+      'Invalid Semister code or title '
+    );
+  }
+
+  const result = await AcademicSemister.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return result;
+};
+
 export const AcademicSemisterService = {
   createSemister,
   getAllSemisters,
   getSingleSemister,
+  updateSemister,
 };

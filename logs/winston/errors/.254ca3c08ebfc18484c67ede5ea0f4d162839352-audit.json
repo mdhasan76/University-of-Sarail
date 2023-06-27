@@ -79,6 +79,21 @@
             "date": 1687809705375,
             "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-27-02error.log",
             "hash": "1f1a32cbf8bd804c1d0a30a71dde64deec21e6a9e01c1ba3cac28bf64828178f"
+        },
+        {
+            "date": 1687838073286,
+            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-27-09error.log",
+            "hash": "09731151868a3862bf064b39d6f94837f8c8a665a71e4b200c3e262d6f004830"
+        },
+        {
+            "date": 1687838519712,
+            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-27-10error.log",
+            "hash": "b8b03e543d11fc5babc018885cdadc0a462493c8f518ba3155cceb3462d12018"
+        },
+        {
+            "date": 1687844174645,
+            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-06-27-11error.log",
+            "hash": "18410fee027469453250e72cf7520c5673331ea353b67602f34bf7273be46fee"
         }
     ],
     "hashType": "sha256"

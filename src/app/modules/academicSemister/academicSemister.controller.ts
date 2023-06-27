@@ -1,13 +1,13 @@
 import { AcademicSemisterService } from './academicSemister.service';
 import catchAsync from '../../../shared/catchAsync';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
 import pick from '../../../shared/pick';
 import { IAcademicSemister } from './academicSemister.interface';
 
 const createAcademicSemister = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response) => {
     const { ...academicSemister } = req.body;
     const result = await AcademicSemisterService.createSemister(
       academicSemister
@@ -19,13 +19,11 @@ const createAcademicSemister = catchAsync(
       data: result,
       success: true,
     });
-
-    next();
   }
 );
 
 // Get all Semister
-const getAllSemisters = catchAsync(async (req, res, next) => {
+const getAllSemisters = catchAsync(async (req, res) => {
   const paginationOption = pick(req.query, [
     'page',
     'limit',
@@ -46,11 +44,10 @@ const getAllSemisters = catchAsync(async (req, res, next) => {
     data: result.data,
     success: true,
   });
-
-  next();
 });
 
-const getSingleSemister = catchAsync(async (req, res, next) => {
+// Get single semister
+const getSingleSemister = catchAsync(async (req, res) => {
   const id = req.params.id;
   const result = await AcademicSemisterService.getSingleSemister(id);
 
@@ -60,12 +57,25 @@ const getSingleSemister = catchAsync(async (req, res, next) => {
     message: 'Get Academic semister successfully',
     data: result,
   });
+});
 
-  next();
+// Update semister
+const updateSemister = catchAsync(async (req, res) => {
+  const id = req.params.id;
+  const updateData = req.body;
+  const result = await AcademicSemisterService.updateSemister(id, updateData);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Get Academic semister successfully',
+    data: result,
+  });
 });
 
 export const AcademicSemisterController = {
   createAcademicSemister,
   getAllSemisters,
   getSingleSemister,
+  updateSemister,
 };
