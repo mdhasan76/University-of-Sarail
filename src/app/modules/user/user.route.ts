@@ -9,4 +9,4 @@ userRouter.post(
   validateRequest(UserValidation.createUserZodSchema),
   UserController.createUser
 );
-export const UserRoutes = { userRouter };
+export const UserRoutes = userRouter;
