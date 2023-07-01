@@ -2,143 +2,107 @@
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:01:03.388Z'
+  timestamp: '2023-07-01T05:48:49.453Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:01:03.403Z'
+  timestamp: '2023-07-01T05:48:49.477Z'
 }
 {
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:02:22.283Z'
+  timestamp: '2023-07-01T05:53:45.174Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:02:22.291Z'
+  timestamp: '2023-07-01T05:53:45.182Z'
 }
 {
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:02:58.937Z'
+  timestamp: '2023-07-01T05:54:42.493Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:02:58.946Z'
+  timestamp: '2023-07-01T05:54:42.503Z'
 }
 {
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:10:05.404Z'
+  timestamp: '2023-07-01T05:56:18.991Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:10:05.412Z'
+  timestamp: '2023-07-01T05:56:18.999Z'
 }
 {
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:10:36.154Z'
+  timestamp: '2023-07-01T05:58:16.909Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:10:36.162Z'
+  timestamp: '2023-07-01T05:58:16.917Z'
 }
 {
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:10:51.129Z'
+  timestamp: '2023-07-01T05:58:24.125Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:10:51.137Z'
+  timestamp: '2023-07-01T05:58:24.134Z'
 }
 {
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:10:54.295Z'
+  timestamp: '2023-07-01T05:58:35.592Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:10:54.303Z'
+  timestamp: '2023-07-01T05:58:35.600Z'
 }
 {
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:13:30.882Z'
+  timestamp: '2023-07-01T05:59:01.762Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:13:30.891Z'
+  timestamp: '2023-07-01T05:59:01.770Z'
 }
 {
   message: 'Server is connected succeflly',
   level: 'info',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:18:08.001Z'
+  timestamp: '2023-07-01T05:59:37.329Z'
 }
 {
   level: 'info',
   message: 'server is running on the ',
   label: 'right meow!',
-  timestamp: '2023-06-30T16:18:08.009Z'
-}
-{
-  message: 'Server is connected succeflly',
-  level: 'info',
-  label: 'right meow!',
-  timestamp: '2023-06-30T16:21:32.647Z'
-}
-{
-  level: 'info',
-  message: 'server is running on the ',
-  label: 'right meow!',
-  timestamp: '2023-06-30T16:21:32.656Z'
-}
-{
-  message: 'Server is connected succeflly',
-  level: 'info',
-  label: 'right meow!',
-  timestamp: '2023-06-30T16:33:01.611Z'
-}
-{
-  level: 'info',
-  message: 'server is running on the ',
-  label: 'right meow!',
-  timestamp: '2023-06-30T16:33:01.619Z'
-}
-{
-  message: 'Server is connected succeflly',
-  level: 'info',
-  label: 'right meow!',
-  timestamp: '2023-06-30T16:33:27.923Z'
-}
-{
-  level: 'info',
-  message: 'server is running on the ',
-  label: 'right meow!',
-  timestamp: '2023-06-30T16:33:27.930Z'
+  timestamp: '2023-07-01T05:59:37.337Z'
 }

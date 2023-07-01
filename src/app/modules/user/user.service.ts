@@ -20,7 +20,7 @@ const createStudent = async (
   }
 
   // set role
-  user.role = 'admin';
+  user.role = 'student';
 
   const academicsemester = await AcademicSemister.findById(
     student.academicSemester
