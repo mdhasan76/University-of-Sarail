@@ -144,6 +144,16 @@
             "date": 1688191218662,
             "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\successs\\UA-2023-07-01-12success.log",
             "hash": "4c168e7d180a65d8f3f083eb043288d0b846122e73847917b596bc2fb8ca9b1f"
+        },
+        {
+            "date": 1688427710258,
+            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\successs\\UA-2023-07-04-05success.log",
+            "hash": "2bb4dbaac7606f785927d0ee9aea45199d5f69f5b21e9eb4cf07257e71922265"
+        },
+        {
+            "date": 1688429399023,
+            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\successs\\UA-2023-07-04-06success.log",
+            "hash": "ec3689e33327101136a3639da71b2876e2caa4995efaf03e592875b4ac3d5828"
         }
     ],
     "hashType": "sha256"
