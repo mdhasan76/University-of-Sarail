@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Model, Types } from 'mongoose';
 import { IStudent } from '../student/student.interface';
 import { IFaculty } from '../faculty/faculty.interface';
@@ -13,4 +14,13 @@ export type IUser = {
   admin?: Types.ObjectId | IAdmin;
 };
 
-export type UserModel = Model<IUser, Record<string, unknown>>;
+// Put all user instance methods in this interface:
+export type IUserMethods = {
+  doesUserExist(id: string): Promise<Partial<IUser | null>>;
+  doesPasswordMatched(
+    givenPassword: string,
+    savePassword: string
+  ): Promise<boolean>;
+};
+
+export type UserModel = Model<IUser, Record<string, unknown>, IUserMethods>;

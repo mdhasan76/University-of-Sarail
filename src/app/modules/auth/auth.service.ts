@@ -1,24 +1,49 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import { User } from '../user/user.model';
-import { ILoginUser } from './auth.interface';
-import { compare } from 'bcrypt';
+import { ILoginUser, ILoginUserResponse } from './auth.interface';
+import config from '../../../config';
+import { JwtHelper } from '../../../helpers/jwtHelpers';
+import { Secret } from 'jsonwebtoken';
 
-const loginUser = async (payload: ILoginUser) => {
+const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   const { id, password } = payload;
 
-  // does exist
-  const doesExist = await User.findOne(
-    { id: id },
-    { id: 1, password: 1, needPasswordChange: 1 }
-  );
+  // create instance of jwt
+  const user = new User();
+  const doesExist = await user.doesUserExist(id);
   if (!doesExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User Does not exist');
   }
-  const isPasswordMatched = await compare(password, doesExist?.password);
-  if (!isPasswordMatched) {
+
+  // Check that the given password in matched with the save pass
+  if (
+    doesExist.password &&
+    !(await user.doesPasswordMatched(password, doesExist?.password))
+  ) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Wrong password');
   }
+
+  const { role, id: userId, needPasswordChange } = doesExist;
+  // assign jwt
+  const accessToken = JwtHelper.createToken(
+    { userId, role },
+    config.jwt.secret as Secret,
+    config.jwt.expires_in as string
+  );
+  const refreshToken = JwtHelper.createToken(
+    { userId, role },
+    config.jwt.refresh as Secret,
+    config.jwt.refresh_expires_in as string
+  );
+
+  console.log({ accessToken, refreshToken, needPasswordChange, doesExist });
+
+  return {
+    accessToken,
+    refreshToken,
+    needPasswordChange,
+  };
 };
 
 export const AuthService = { loginUser };
