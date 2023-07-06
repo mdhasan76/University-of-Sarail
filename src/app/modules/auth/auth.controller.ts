@@ -1,24 +1,17 @@
-import { AuthService } from './auth.service';
+import { Request, Response } from 'express';
+import config from '../../../config';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import httpStatus from 'http-status';
-import config from '../../../config';
+import { IRefreshTokenResponse } from './auth.interface';
+import { AuthService } from './auth.service';
 
-const loginUser = catchAsync(async (req, res) => {
-  // console.log(req.body);
-  const data = req.body;
-  const result = await AuthService.loginUser(data);
+const loginUser = catchAsync(async (req: Request, res: Response) => {
+  const { ...loginData } = req.body;
+  const result = await AuthService.loginUser(loginData);
   const { refreshToken, ...others } = result;
 
-  // const cookieOptions = {
-  //   secure: config.mode === 'production',
-  //   httpOnly: true,
-  // };
-
-  // console.log(refreshToken, 'this is logintoken login');
-  // res.cookie('refreshToken', refreshToken, cookieOptions);
-
   // set refresh token into cookie
+
   const cookieOptions = {
     secure: config.mode === 'production',
     httpOnly: true,
@@ -27,17 +20,19 @@ const loginUser = catchAsync(async (req, res) => {
   res.cookie('refreshToken', refreshToken, cookieOptions);
 
   sendResponse(res, {
-    statusCode: httpStatus.OK,
+    statusCode: 200,
     success: true,
-    message: 'Login User successfully',
+    message: 'User lohggedin successfully !',
     data: others,
   });
 });
 
-const refreshToken = catchAsync(async (req, res) => {
+const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const { refreshToken } = req.cookies;
-  console.log(refreshToken, 'this is refreshToken');
+
   const result = await AuthService.refreshToken(refreshToken);
+
+  // set refresh token into cookie
 
   const cookieOptions = {
     secure: config.mode === 'production',
@@ -46,12 +41,15 @@ const refreshToken = catchAsync(async (req, res) => {
 
   res.cookie('refreshToken', refreshToken, cookieOptions);
 
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
+  sendResponse<IRefreshTokenResponse>(res, {
+    statusCode: 200,
     success: true,
-    message: 'Login User successfully',
+    message: 'User lohggedin successfully !',
     data: result,
   });
 });
 
-export const AuthController = { loginUser, refreshToken };
+export const AuthController = {
+  loginUser,
+  refreshToken,
+};
