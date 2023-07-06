@@ -1,9 +1,9 @@
 import { Schema, model } from 'mongoose';
-import { IUser, IUserMethods, UserModel } from './user.interface';
+import { IUser, UserModel } from './user.interface';
 import { compare, hash } from 'bcrypt';
 import config from '../../../config';
 
-const userSchema = new Schema<IUser, Record<string, undefined>, IUserMethods>(
+const userSchema = new Schema<IUser, UserModel>(
   {
     id: {
       type: String,
@@ -44,21 +44,40 @@ const userSchema = new Schema<IUser, Record<string, undefined>, IUserMethods>(
   }
 );
 
-userSchema.methods.doesUserExist = async function (
+userSchema.statics.doesUserExist = async function (
   id: string
-): Promise<Partial<IUser | null>> {
+): Promise<Pick<
+  IUser,
+  'id' | 'password' | 'role' | 'needPasswordChange'
+> | null> {
   return await User.findOne(
-    { id: id },
-    { id: 1, password: 1, needPasswordChange: 1, role: 1 }
+    { id },
+    { id: 1, password: 1, role: 1, needsPasswordChange: 1 }
   );
 };
 
-userSchema.methods.doesPasswordMatched = async function (
+userSchema.statics.doesPasswordMatched = async function (
   givenPassword: string,
-  savePassword: string
+  savedPassword: string
 ): Promise<boolean> {
-  return await compare(givenPassword, savePassword);
+  return await compare(givenPassword, savedPassword);
 };
+
+// userSchema.methods.doesUserExist = async function (
+//   id: string
+// ): Promise<Partial<IUser | null>> {
+//   return await User.findOne(
+//     { id: id },
+//     { id: 1, password: 1, needPasswordChange: 1, role: 1 }
+//   );
+// };
+
+// userSchema.methods.doesPasswordMatched = async function (
+//   givenPassword: string,
+//   savePassword: string
+// ): Promise<boolean> {
+//   return await compare(givenPassword, savePassword);
+// };
 
 userSchema.pre('save', async function (next) {
   // Hash password

@@ -199,6 +199,11 @@
             "date": 1688603101649,
             "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-07-06-06error.log",
             "hash": "678b8c52b33eb92e62c6fe31149326c6c08c4eb71bce370569f532d301ebfd7b"
+        },
+        {
+            "date": 1688605244225,
+            "name": "D:\\Next-Level-webDev\\University-of-Arifail\\logs\\winston\\errors\\UA-2023-07-06-07error.log",
+            "hash": "02bf0f8736b640e97f35a3450210fbc7a730f4799a17a356d31f2f2198f2813b"
         }
     ],
     "hashType": "sha256"

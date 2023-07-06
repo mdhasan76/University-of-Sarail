@@ -6,9 +6,11 @@ import httpStatus from 'http-status';
 import cookieParser from 'cookie-parser';
 const app: Application = express();
 
-// parser or Middleware
+// Middleware
 app.use(cors());
 app.use(cookieParser());
+
+// Parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

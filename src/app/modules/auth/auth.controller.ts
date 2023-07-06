@@ -24,7 +24,7 @@ const loginUser = catchAsync(async (req, res) => {
     httpOnly: true,
   };
 
-  res.cookie('token', refreshToken, cookieOptions);
+  res.cookie('refreshToken', refreshToken, cookieOptions);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -36,6 +36,7 @@ const loginUser = catchAsync(async (req, res) => {
 
 const refreshToken = catchAsync(async (req, res) => {
   const { refreshToken } = req.cookies;
+  console.log(refreshToken, 'this is refreshToken');
   const result = await AuthService.refreshToken(refreshToken);
 
   const cookieOptions = {

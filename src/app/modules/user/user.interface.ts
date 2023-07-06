@@ -15,12 +15,22 @@ export type IUser = {
 };
 
 // Put all user instance methods in this interface:
-export type IUserMethods = {
-  doesUserExist(id: string): Promise<Partial<IUser | null>>;
+// export type IUserMethods = {
+//   doesUserExist(id: string): Promise<Partial<IUser | null>>;
+//   doesPasswordMatched(
+//     givenPassword: string,
+//     savePassword: string
+//   ): Promise<boolean>;
+// };
+
+export type UserModel = {
+  doesUserExist(
+    id: string
+  ): Promise<Pick<IUser, 'id' | 'password' | 'role' | 'needPasswordChange'>>;
   doesPasswordMatched(
     givenPassword: string,
-    savePassword: string
+    savedPassword: string
   ): Promise<boolean>;
-};
+} & Model<IUser>;
 
-export type UserModel = Model<IUser, Record<string, unknown>, IUserMethods>;
+// export type UserModel = Model<IUser, Record<string, unknown>, IUserMethods>;
