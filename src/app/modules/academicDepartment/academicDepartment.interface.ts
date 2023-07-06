@@ -1,9 +1,10 @@
-import { Model, Types } from 'mongoose';
+import { Model } from 'mongoose';
+import mongoose from 'mongoose';
 import { IAcademicFaculty } from '../academicFaculty/academicFaculty.interface';
 
 export type IAcademicDepartment = {
   title: string;
-  academicFaculty: Types.ObjectId | IAcademicFaculty;
+  academicFaculty: mongoose.Types.ObjectId | IAcademicFaculty;
 };
 
 export type AcademicDepartmentModel = Model<
@@ -13,5 +14,5 @@ export type AcademicDepartmentModel = Model<
 
 export type IAcademicDepartmentFilters = {
   searchTerm?: string;
-  academicFaculty?: Types.ObjectId;
+  academicFaculty?: mongoose.Types.ObjectId;
 };

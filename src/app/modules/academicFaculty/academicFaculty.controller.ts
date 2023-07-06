@@ -24,6 +24,8 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
+  console.log(req.headers.abuthorization, 'THis is request headers aaoajlk');
+  console.log(req.user, 'THis is some');
   const filters = pick(req.query, academicFacultyFilterableFields);
   const paginationOptions = pick(req.query, paginationFields);
 
@@ -42,6 +44,7 @@ const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getSingleFaculty = catchAsync(async (req: Request, res: Response) => {
+  console.log(req.user, 'THis is some');
   const { id } = req.params;
   const result = await AcademicFacultyService.getSingleFaculty(id);
 
