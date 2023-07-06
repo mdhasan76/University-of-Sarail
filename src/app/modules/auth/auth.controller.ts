@@ -10,12 +10,21 @@ const loginUser = catchAsync(async (req, res) => {
   const result = await AuthService.loginUser(data);
   const { refreshToken, ...others } = result;
 
+  // const cookieOptions = {
+  //   secure: config.mode === 'production',
+  //   httpOnly: true,
+  // };
+
+  // console.log(refreshToken, 'this is logintoken login');
+  // res.cookie('refreshToken', refreshToken, cookieOptions);
+
+  // set refresh token into cookie
   const cookieOptions = {
     secure: config.mode === 'production',
     httpOnly: true,
   };
 
-  res.cookie('refreshToken', refreshToken, cookieOptions);
+  res.cookie('token', refreshToken, cookieOptions);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
