@@ -26,6 +26,18 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     data: others,
   });
 });
+const changePassword = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const { ...passwordData } = req.body;
+  const result = await AuthService.changePassword(user, passwordData);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: ` ${user.role} Password changes successfully !`,
+    data: result,
+  });
+});
 
 const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const { refreshToken } = req.cookies;
@@ -44,7 +56,7 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IRefreshTokenResponse>(res, {
     statusCode: 200,
     success: true,
-    message: 'User lohggedin successfully !',
+    message: 'New token genaret successfully !',
     data: result,
   });
 });
@@ -52,4 +64,5 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
 export const AuthController = {
   loginUser,
   refreshToken,
+  changePassword,
 };
