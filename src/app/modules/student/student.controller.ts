@@ -14,6 +14,14 @@ const getAllStudents = catchAsync(async (req, res) => {
     'sortBy',
     'sortOrder',
   ]);
+
+  // Example of pick return
+  // {
+  //   page:3,
+  //   limit:4,
+  //   sortBy: 'name',
+  //   sortOrder: 'asc'
+  // }
   const filters = pick(req.query, studentFilterableField);
 
   const result = await StudentService.getAllStudents(filters, paginationOption);
